@@ -1,8 +1,9 @@
-name: "Publish 'Word of the day'"
+name: "Publish Word of the day"
+
 on:
   workflow_dispatch:
   schedule:
-    - "5 12 * * *"
+    - cron: "5 12 * * *"
 
 jobs:
   publish-word:
