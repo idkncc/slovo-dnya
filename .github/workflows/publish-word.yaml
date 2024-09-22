@@ -3,7 +3,7 @@ name: "Publish Word of the day"
 on:
   workflow_dispatch:
   schedule:
-    - cron: "5 12 * * *"
+    - cron: "5 9 * * *" # will be 12:05 in MSK
 
 jobs:
   publish-word:
