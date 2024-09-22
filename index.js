@@ -24,6 +24,7 @@ function publishWord(word) {
     })
         .then(() => {
             console.info("Published word of a day!")
+            console.info(` ${word}`)
         })
         .catch((err) => {
             console.error("Couldn't publish word of a day...")
