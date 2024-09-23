@@ -15,7 +15,7 @@ function publishWord(word) {
         data: {
             chat_id: Number.isNaN(parseInt(CHAT_ID)) ? CHAT_ID : parseInt(CHAT_ID),
             text: [
-                "*Слово дня 😋🤔🫡*",
+                "*Слово дня 😋🤔🫡* ||\\#словодня||",
                 "",
                 word
             ].join("\n"),
