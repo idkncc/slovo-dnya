@@ -19,7 +19,21 @@ function publishWord(word) {
                 "",
                 word
             ].join("\n"),
-            parse_mode: "MarkdownV2"
+            parse_mode: "MarkdownV2",
+
+            link_preview_options: {
+                is_disabled: true
+            },
+            reply_markup: {
+                inline_keyboard: [
+                    [
+                        {
+                            text: "Викисловарь",
+                            url: `https://ru.wiktionary.org/wiki/${encodeURIComponent(word)}`
+                        }
+                    ]
+                ]
+            }
         },
     })
         .then(() => {
