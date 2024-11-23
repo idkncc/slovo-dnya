@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>Document</title>
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,800;1,800&display=swap');
+
+        body {
+          width: 1024px;
+          height: 1024px;
+          margin: 0;
+          padding: 0;
+
+          font-family: "Noto Serif", serif;
+        }
+
+        .background {
+          width: calc(1024px - 24px * 2);
+          height: calc(1024px - 24px * 2);
+          padding: 24px;
+
+          background: #000;
+          background: linear-gradient(
+            -45deg,
+            {{gradient1}},{{gradient2}}
+          );
+          color: white;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+
+        .header {
+
+        }
+
+        h1, p {
+          color: {{textColor}};
+          margin: 0;
+        }
+
+        h1 {
+          font-family: "Playfair Display", serif;
+          font-weight: 800;
+          font-size: calc(200vh / {{slovoDnyaLength}});
+        }
+        </style>
+    </head>
+    <body>
+        <div class="background">
+            <p style="text-align: right; font-size: 5vh;"><b>© КАКОЕЖЕ СЕДНЯ СЛОВО ДНЯ</b> (@slova_dnya)</p>
+
+            <div style="flex-grow: 1;"></div>
+
+            <div class="header">
+                <h1>{{slovoDnya}}</h1>
+            </div>
+        </div>
+     </body>
+</html>
