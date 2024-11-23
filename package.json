@@ -1,20 +1,21 @@
 {
   "name": "slovo-dnya",
-  "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
+  "version": "1.0.0",
+  "author": "idkncc",
   "license": "MIT",
-  "dependencies": {
-    "axios": "^1.7.7",
-    "dotenv": "^16.4.5"
+  "keywords": [],
+  "scripts": {
+    "post": "bun run src/index.ts"
   },
+  "main": "src/index.ts",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "node-html-to-image": "^5.0.0"
   }
 }

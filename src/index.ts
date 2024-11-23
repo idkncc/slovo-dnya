@@ -1,3 +1,5 @@
+import nodeHtmlToImage from "node-html-to-image";
+
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
 const FILENAME = process.env.FILENAME ?? "words.txt";
@@ -12,13 +14,33 @@ if (!CHAT_ID) {
     process.exit(1)
 }
 
+async function generateImage(word: string): Promise<Buffer> {
+    return nodeHtmlToImage({
+        html: await Bun.file("template.html").text(),
+        content: {
+            gradient1: "#948E99",
+            gradient2: "#2E1437",
+            slovoDnya: word,
+            slovoDnyaLength: word.length,
+            meaning: "ass",
+        }
+    }) as Promise<Buffer>
+}
+
 async function publishWord(word: string) {
+
+
     const url = `https://api.telegram.org/bot${BOT_TOKEN!}/sendPhoto`
 
     const formData = new FormData();
 
     formData.set("chat_id", CHAT_ID!)
-    formData.set("photo", Bun.file("pon.png"), "pon.png")
+    formData.set(
+        "photo",
+        new Blob([
+            await generateImage(word)
+        ]),
+        `${word}.png`)
     formData.set("caption", `#словодня – ${word}`)
     formData.set("reply_markup", JSON.stringify(
         {

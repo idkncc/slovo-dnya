@@ -2,20 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <title>Document</title>
 
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,800;1,800&display=swap');
 
         body {
+          width: 1024px;
+          height: 1024px;
           margin: 0;
+          padding: 0;
+
           font-family: "Noto Serif", serif;
         }
 
         .background {
-          width: 1024px;
-          height: 1024px;
+          width: calc(1024px - 24px * 2);
+          height: calc(1024px - 24px * 2);
           padding: 24px;
 
           background: #000;
@@ -41,23 +45,18 @@
         h1 {
           font-family: "Playfair Display", serif;
           font-weight: 800;
-          font-size: 100pt;
-        }
-
-        p {
-          font-size: 18pt;
+          font-size: calc(200vh / {{slovoDnyaLength}});
         }
         </style>
     </head>
     <body>
         <div class="background">
-            <p style="text-align: right;"><b>© КАКОЕЖЕ СЕДНЯ СЛОВО ДНЯ</b> (@slova_dnya)</p>
+            <p style="text-align: right; font-size: 5vh;"><b>© КАКОЕЖЕ СЕДНЯ СЛОВО ДНЯ</b> (@slova_dnya)</p>
 
             <div style="flex-grow: 1;"></div>
 
             <div class="header">
                 <h1>{{slovoDnya}}</h1>
-                <p>{{meaning}}</p>
             </div>
         </div>
      </body>
