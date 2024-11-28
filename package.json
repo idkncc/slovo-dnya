@@ -6,7 +6,8 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "post": "bun run src/index.ts"
+    "post": "bun run src/publishPost.ts",
+    "generate-image": "bun run src/generateImage.ts"
   },
   "main": "src/index.ts",
   "devDependencies": {
@@ -16,6 +17,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "node-html-to-image": "^5.0.0"
+    "node-font2base64": "^0.9.2",
+    "node-html-to-image": "^5.0.0",
+    "wikipedia": "^2.1.2"
   }
 }
