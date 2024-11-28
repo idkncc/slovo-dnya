@@ -1,4 +1,5 @@
 import { generateImage } from "./utils/image";
+import getMeaning from "./utils/meaning";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
@@ -15,8 +16,6 @@ if (!CHAT_ID) {
 }
 
 async function publishWord(word: string) {
-
-
     const url = `https://api.telegram.org/bot${BOT_TOKEN!}/sendPhoto`
 
     const formData = new FormData();
@@ -25,7 +24,7 @@ async function publishWord(word: string) {
     formData.set(
         "photo",
         new Blob([
-            await generateImage(word)
+            await generateImage(word, await getMeaning(word))
         ]),
         `${word}.png`)
     formData.set("caption", `#словодня – ${word}`)
