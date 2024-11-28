@@ -2,11 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-        <title>Document</title>
 
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,800;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap');
+
+          @font-face {
+            font-family: "Garamond";
+            src: url("{{{_fontData}}}") format("woff2");
+          }
+        </style>
+
+        <style>
+
 
         body {
           width: 1024px;
@@ -14,7 +21,9 @@
           margin: 0;
           padding: 0;
 
-          font-family: "Noto Serif", serif;
+          font-family: "Noto Sans", sans-serif;
+          font-weight: 400;
+
         }
 
         .background {
@@ -22,12 +31,8 @@
           height: calc(1024px - 24px * 2);
           padding: 24px;
 
-          background: #000;
-          background: linear-gradient(
-            -45deg,
-            {{gradient1}},{{gradient2}}
-          );
-          color: white;
+          background: #e7e5e4;
+          color: #1c1917;
 
           display: flex;
           flex-direction: column;
@@ -35,28 +40,34 @@
         }
 
         .header {
+          display: flex;
+          justify-content: space-between;
+
+          font-size: 5vh;
 
         }
 
-        h1, p {
-          color: {{textColor}};
-          margin: 0;
+        .spacer {
+          flex-grow: 1;
         }
 
         h1 {
-          font-family: "Playfair Display", serif;
-          font-weight: 800;
+          font-family: "Garamond", serif;
+          font-weight: 400;
           font-size: calc(200vh / {{slovoDnyaLength}});
         }
         </style>
     </head>
     <body>
         <div class="background">
-            <p style="text-align: right; font-size: 5vh;"><b>© КАКОЕЖЕ СЕДНЯ СЛОВО ДНЯ</b> (@slova_dnya)</p>
-
-            <div style="flex-grow: 1;"></div>
-
             <div class="header">
+                <p>#СЛОВО_ДНЯ</p>
+                <p>@slova_dnya</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="slovo">
                 <h1>{{slovoDnya}}</h1>
             </div>
         </div>

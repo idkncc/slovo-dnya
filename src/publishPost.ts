@@ -1,5 +1,4 @@
-import nodeHtmlToImage from "node-html-to-image";
-import { hexBrightness } from "./utils";
+import { generateImage } from "./utils/image";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
@@ -13,24 +12,6 @@ if (!BOT_TOKEN) {
 if (!CHAT_ID) {
     console.error("No CHAT_ID enviroment variable found.")
     process.exit(1)
-}
-
-async function generateImage(word: string): Promise<Buffer> {
-    const generateColor = () => '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-
-    const gradient1 = generateColor()
-    const gradient2 = generateColor()
-
-    return nodeHtmlToImage({
-        html: await Bun.file("template.html").text(),
-        content: {
-            gradient1,
-            gradient2,
-            textColor: hexBrightness(gradient1) > 200 ? "#000" : "#FFF",
-            slovoDnya: word,
-            slovoDnyaLength: word.length,
-        }
-    }) as Promise<Buffer>
 }
 
 async function publishWord(word: string) {
