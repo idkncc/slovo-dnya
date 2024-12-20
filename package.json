@@ -17,8 +17,9 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "handlebars": "^4.7.8",
     "node-font2base64": "^0.9.2",
-    "node-html-to-image": "^5.0.0",
+    "puppeteer": "^23.11.1",
     "wikipedia": "^2.1.2"
   }
 }

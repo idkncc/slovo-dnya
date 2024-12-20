@@ -6,7 +6,7 @@ if (!word) {
     console.error("No word provided!")
     console.error("")
     console.error("Usage:")
-    console.error(` bun generate-image <word> <meaning>   –   generates image <word>.png`)
+    console.error(` bun generate-image <word>   –   generates image <word>.png`)
 
     process.exit(1)
 }
