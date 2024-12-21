@@ -11,7 +11,6 @@ export async function generateImage(word: string, meaning: string): Promise<Buff
         garamondFont: await encodeFont('./assets/Garamond.woff2'),
         notoSansFont: await encodeFont('./assets/NotoSans-Regular.woff2'),
 
-        xmasVibesImage: await encodeImage("./assets/lights.png"),
         targetSize,
 
         slovoDnya: word,
