@@ -1,5 +1,5 @@
 import { generateImage } from "./utils/image";
-import getMeaning from "./utils/meaning";
+import { getMeaning } from "./utils/meaning";
 
 const word = Bun.argv[2]
 if (!word) {

@@ -4,31 +4,36 @@
         <meta charset="UTF-8">
 
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap');
+          :root {
+            --target-size: {{targetSize}}px;
+            --padding: 24px;
+          }
+
+          @font-face {
+            font-family: "Noto Sans";
+            src: url("{{{notoSansFont}}}") format("woff2");
+          }
 
           @font-face {
             font-family: "Garamond";
-            src: url("{{{_fontData}}}") format("woff2");
+            src: url("{{{garamondFont}}}") format("woff2");
           }
         </style>
 
         <style>
-
-
         body {
-          width: 1024px;
-          height: 1024px;
+          width: var(--target-size);
+          height: var(--target-size);
           margin: 0;
           padding: 0;
 
           font-family: "Noto Sans", sans-serif;
-          font-weight: 400;
         }
 
         .background {
-          width: calc(1024px - 24px * 2);
-          height: calc(1024px - 24px * 2);
-          padding: 24px;
+          width: calc(var(--target-size) - var(--padding) * 2);
+          height: calc(var(--target-size) - var(--padding) * 2);
+          padding: var(--padding);
 
           background: #e7e5e4;
           color: #1c1917;
@@ -42,8 +47,7 @@
           display: flex;
           justify-content: space-between;
 
-          font-size: 5vh;
-
+          font-size: 3vh;
         }
 
         .spacer {
@@ -57,11 +61,11 @@
         .slovo h1 {
           font-family: "Garamond", serif;
           font-weight: 400;
-          font-size: calc(200vh / {{slovoDnyaLength}});
+          font-size: calc(100vh / {{slovoDnyaLength}});
         }
 
         .slovo p {
-          font-size: 5vh
+          font-size: 3vh;
         }
         </style>
     </head>

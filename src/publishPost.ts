@@ -1,9 +1,9 @@
+import getWord from "./utils/getWord";
 import { generateImage } from "./utils/image";
-import getMeaning from "./utils/meaning";
+import { getMeaning, hasWikiPage } from "./utils/meaning";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
-const FILENAME = process.env.FILENAME ?? "words.txt";
 
 if (!BOT_TOKEN) {
     console.error("No BOT_TOKEN enviroment variable found.")
@@ -57,9 +57,19 @@ async function publishWord(word: string) {
     }
 }
 
-const output = await Bun.file(FILENAME).text();
+let word = ""
 
-const lines = output.split("\n");
-const index = Math.floor(Math.random() * lines.length);
+console.log("Starting word generation...")
+while (true) {
+    word = await getWord()
 
-publishWord(lines[index]);
+    if (await hasWikiPage(word)) {
+        console.log(`${word}: has meaning in wikipedia!`)
+        break
+    } else {
+        console.log(`${word}: doesn't have meaning in wikipedia. regenerating...`)
+        await Bun.sleep(100)
+    }
+}
+
+await publishWord(word);

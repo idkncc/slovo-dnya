@@ -1,6 +1,20 @@
 import wiki from "../wiki";
 
-export default async function getMeaning(word: string): Promise<string> {
+export async function hasWikiPage(word: string) {
+    try {
+        const page = await wiki.page(word)
+
+        if (page.title.toLowerCase() === word.toLowerCase()) {
+            return true
+        }
+
+        return false
+    } catch (e) {
+        return false
+    }
+}
+
+export async function getMeaning(word: string): Promise<string> {
     try {
         const wordPage = await wiki
             .page(word)
@@ -8,6 +22,8 @@ export default async function getMeaning(word: string): Promise<string> {
         const content = await wordPage.content()
 
         const summary = await wordPage.summary()
+
+        console.log(summary)
 
         if (summary.type === "disambiguation") {
             const regex = content.match(/(.*) — (.*)\n/)
