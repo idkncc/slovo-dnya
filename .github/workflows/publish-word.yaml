@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Install browser (for image)
+      - name: Install browser
         run: bunx puppeteer browsers install
 
       - name: Publish Word of the day
